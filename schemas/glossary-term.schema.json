@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Glossary Term",
+  "description": "Validation contract for glossary term YAML front matter.",
+  "type": "object",
+  "required": ["id", "name", "category", "status", "version"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Stable term identifier in lowercase kebab-case."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable term name."
+    },
+    "category": {
+      "type": "string",
+      "description": "Top-level grouping used for navigation and organization."
+    },
+    "sub_types": {
+      "type": "array",
+      "description": "Optional list of subtype term IDs.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "description": "Subtype term ID in lowercase kebab-case."
+      }
+    },
+    "typical_roles": {
+      "type": "array",
+      "description": "Optional list of role term IDs commonly associated with this term.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "description": "Role term ID in lowercase kebab-case."
+      }
+    },
+    "related_terms": {
+      "type": "array",
+      "description": "Optional list of related term IDs.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "description": "Related term ID in lowercase kebab-case."
+      }
+    },
+    "fibo_equivalent": {
+      "type": ["string", "null"],
+      "description": "Optional FIBO URI for equivalent concept, or null if none."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "review", "approved", "deprecated"],
+      "description": "Editorial lifecycle status for the term."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the term definition (major.minor.patch)."
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date",
+      "description": "Optional ISO date (YYYY-MM-DD) for most recent substantive update."
+    }
+  }
+}
