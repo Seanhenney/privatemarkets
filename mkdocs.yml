@@ -1,0 +1,50 @@
+site_name: Open Private Markets
+site_url: https://openprivatemarkets.org
+site_description: Shared, open infrastructure for the private markets industry. The reference vocabulary, with more components to follow.
+repo_url: https://github.com/seanhenney/privatemarkets
+repo_name: seanhenney/privatemarkets
+
+docs_dir: src/privatemarkets/glossary
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: black
+      accent: teal
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - toc.integrate
+    - content.action.edit
+
+plugins:
+  - search
+  - ezlinks:
+      wikilinks: true
+  - mkdocs-backlinks
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+strict: true
+
+nav:
+  - Home: index.md
+  - Firm types:
+      - firm-types/index.md
+      - Fund manager: firm-types/fund-manager.md
+      - Allocator: firm-types/allocator.md
+      - General partner: firm-types/general-partner.md
+  - Fund structures:
+      - fund-structures/index.md
+      - Closed-end fund: fund-structures/closed-end-fund.md
