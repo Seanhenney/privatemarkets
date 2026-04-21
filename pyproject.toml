@@ -1,0 +1,17 @@
+[project]
+name = "privatemarkets"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Sean Henney", email = "henneysean@outlook.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+privatemarkets = "privatemarkets:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
