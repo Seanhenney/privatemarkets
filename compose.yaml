@@ -2,7 +2,7 @@ services:
   docs:
     build: .
     ports:
-      - "8000:8000"
+      - "${DOCS_PORT:-8000}:8000"
     volumes:
       - .:/app
     working_dir: /app

@@ -10,7 +10,11 @@ up:
 down:
     docker compose down
 
-# Run the MkDocs preview server at localhost:8000
+# Show the URL where the docs site is served
+url:
+    @printf "http://localhost:%s\n" "$(docker compose port docs 8000 | cut -d: -f2)"
+
+# Run the MkDocs preview server
 serve:
     docker compose exec docs uv run mkdocs serve --dev-addr=0.0.0.0:8000
 
@@ -38,15 +42,11 @@ build:
 shell:
     docker compose exec docs bash
 
-# Add a Python dependency
-add package:
-    docker compose exec docs uv add {{package}}
-
-# Rebuild the container image (after dependency changes)
+# Rebuild the container image (run after host-side dependency changes)
 rebuild:
     docker compose down && docker compose up -d --build
 
 # Clean up
 clean:
     docker compose down -v
-    rm -rf site/ dist/ .venv/
+    rm -rf site/ dist/
