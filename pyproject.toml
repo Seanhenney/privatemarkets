@@ -7,7 +7,7 @@ requires-python = ">=3.11"
 license = "MIT AND CC-BY-4.0"
 license-files = ["LICENSE-MIT", "LICENSE-CC-BY-4.0"]
 authors = [
-    { name = "Sean Henney" }
+    { name = "Sean Henney", email="henneysean@outlook.com" }
 ]
 keywords = ["private markets", "finance", "vocabulary", "ontology", "reference data"]
 dependencies = [
@@ -23,6 +23,15 @@ Documentation = "https://openprivatemarkets.org"
 [build-system]
 requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build]
+# Prevent accidental publishing of local/sensitive docs in source distributions.
+exclude = [
+    "opm 2.md",
+    "*.local.md",
+    "dist/**",
+    "site/**",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/privatemarkets"]
