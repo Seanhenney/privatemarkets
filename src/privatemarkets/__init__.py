@@ -8,7 +8,7 @@ from pathlib import Path
 from privatemarkets.loader import load_glossary
 from privatemarkets.models import GlossaryFrontmatter, GlossaryTerm
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 _GLOSSARY_DIR = Path(__file__).parent / "glossary"
 
