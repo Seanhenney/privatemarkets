@@ -29,6 +29,8 @@ build-backend = "hatchling.build"
 exclude = [
     "opm 2.md",
     "*.local.md",
+    ".uv-cache/**",
+    ".venv/**",
     "dist/**",
     "site/**",
 ]
